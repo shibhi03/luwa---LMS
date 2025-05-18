@@ -1,0 +1,86 @@
+
+.login-container {
+  color: #FFFFFF;
+  margin-left: 20%;
+  margin-right: 20%;
+  min-height: calc(100vh - 20px);
+  padding-right: 20px;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.login-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+/* Brand text */
+.colored {
+  color: #FF914D;
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+/* Register Button Styling */
+.reg-btn {
+  background-color: transparent;
+  color: white;
+  border: 2px solid #FF914D;
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  font-size: 1rem;
+}
+
+.reg-btn:hover {
+  background-color: #FF914D;
+  color: black;
+}
+
+/* Center the form in the page */
+.login-form {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Styling the form box */
+.form-box {
+  width: 100%;
+  max-width: 400px;
+  background-color: #000;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-box input {
+  background-color: transparent;
+  color: white;
+  border: 2px solid #FF914D;
+  border-radius: 30px;
+  padding: 20px 20px;
+  font-size: 1rem;
+}
+
+.form-box input::placeholder {
+  color: #aaa;
+}
+
+.form-box input:focus {
+    outline: none
+}
+
+.form-box button {
+  background-color: #FF914D;
+  border: none;
+  padding: 15px;
+  border-radius: 30px;
+  color: white;
+  font-weight: bold;
+  font-size: 1.5rem;
+}

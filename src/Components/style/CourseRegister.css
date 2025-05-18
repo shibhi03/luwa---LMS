@@ -1,0 +1,43 @@
+.signup-container {
+    color: #FFFFFF;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.signup-title {
+    margin: 0;
+    font-size: 5rem;
+    text-align: left;
+}
+
+.signup-text {
+    margin: 0%;
+    font-size: 2.5rem;
+}
+
+.signup-btn {
+    margin-block-start: 10%;
+    width: 15rem;
+    height: 4rem;
+}
+
+.signup-col {
+    width: 100%;
+    /* background-color: #FFFFFF; */
+}
+
+@media screen and (max-width: 768px) {
+    .signup-innerContainer {
+        width: 80%;
+    }
+
+    .signup-title {
+        font-size: 3rem;
+    }
+
+    .signup-text {
+        font-size: 1.5rem;
+    }
+}

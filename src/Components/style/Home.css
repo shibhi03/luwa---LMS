@@ -1,0 +1,92 @@
+.home {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.homeContainer {
+    display: grid;
+}
+
+.name,
+.abbrivation {
+    margin: 0;
+    color: #FFFFFF;
+    letter-spacing: 1rem;
+    text-align: center;
+    font-size: 15rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 100;
+}
+
+.abbrivation {
+    font-size: 4rem;
+    letter-spacing: 0.5rem;
+}
+
+.colored {
+    color: #FF914D;
+}
+
+.btn {
+    cursor: pointer;
+    background-color: #FF914D;
+    color: #FFFFFF;
+    border: solid 2px #FF914D;
+    border-radius: 20px;
+    font-size: 1.5rem;
+}
+
+.get-started {
+    width: fit-content + 2rem;
+    color: #FFFFFF;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 15%;
+    background-color: transparent;
+}
+
+.signup {
+    background-color: transparent;
+}
+
+.signup:hover {
+    background-color: #FF914D;
+    color: black;
+}
+
+@media screen  and (min-width: 320px) {
+
+    .name {
+        font-size: 5rem;
+    }
+
+    .abbrivation {
+        font-size: 1rem;
+    }
+
+    .signup,
+    .login {
+        width: 7rem;
+        height: 3rem;
+    }
+    
+}
+
+@media screen  and (min-width: 615px) {
+    .name {
+        font-size: 10rem;
+    }
+
+    .abbrivation {
+        font-size: 2.5rem;
+    }
+
+    .signup,
+    .login {
+        width: 15rem;
+        height: 4rem;
+        font-size: 1.5rem;
+    }
+}

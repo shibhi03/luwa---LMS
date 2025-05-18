@@ -1,0 +1,84 @@
+.coursesContainer {
+    color: #FFFFFF;
+    /* background-color: #FF914D; */
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.innerContainer {
+    /* background-color: #FF914D; */
+    height: 80%;
+    overflow: hidden;
+    width: 50%;
+    display: grid;
+    gap: 20px;
+    align-items: center;
+    justify-items: center;
+}
+
+.course-row {
+    margin: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.courseContainer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    justify-items: center;
+    align-items: center;
+}
+
+.course {
+    z-index: 1000;
+    width: 130px;
+    height: 130px;
+    padding: 30px;
+    border: solid 3px #FFBD94;
+    display: grid;
+    align-content: center;
+    justify-content: center;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.course-img {
+    width: 100px;
+}
+
+.course-name {
+    text-align: center;
+}
+
+.clicked {
+    border: solid 5px #FF914D;
+}
+
+.selected {
+    text-align: center;
+}
+
+.next-btn {
+    display: grid;
+    gap: 20px;
+    width: max-content;
+}
+
+.back-btn {
+    width: 8rem;
+    height: 3rem;
+    font-size: 1.5rem;
+    background-color: #FF914D;
+}
+
+.nxt-btn {
+    width: 15rem;
+    height: 4rem;
+}
+
+.nxt-btn:disabled {
+    background-color: #FFBD94;
+}

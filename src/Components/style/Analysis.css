@@ -1,0 +1,12 @@
+.analysis-container {
+    color: #FFFFFF;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.analysis-innerContainer {
+    width: 95%;
+    height: 95%;
+}

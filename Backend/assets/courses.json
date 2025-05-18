@@ -1,0 +1,27 @@
+[
+    {
+        "id": 1,
+        "name": "C",
+        "img": "http://localhost:6969/img/c.png"
+    },
+    {
+        "id": 2,
+        "name": "CPP",
+        "img": "http://localhost:6969/img/cpp.png"
+    },
+    {
+        "id": 3,
+        "name": "Java",
+        "img": "http://localhost:6969/img/java.png"
+    },
+    {
+        "id": 4,
+        "name": "Python",
+        "img": "http://localhost:6969/img/python.png"
+    },
+    {
+        "id": 5,
+        "name": "Fresher",
+        "img": "http://localhost:6969/img/none.png"
+    }
+]

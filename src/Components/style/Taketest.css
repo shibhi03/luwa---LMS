@@ -1,0 +1,56 @@
+.takeTestContainer {
+    /* background-color: antiquewhite; */
+    height: 100vh;
+    color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.test-innerContainer {
+    /* border: solid 1px #FFFFFF; */
+    width: 50%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.test-text {
+    text-align: center;
+}
+
+.test-btns {
+    display: grid;
+    gap: 30px;
+    /* margin: 10%; */
+}
+
+.test-btn {
+    width: 30rem;
+    height: 4.5rem;
+    font-weight: bolder;
+}
+
+.back-btn {
+    border-radius: 10px;
+}
+
+@media screen  and (min-width: 320px) {
+
+    .test-innerContainer {
+        width: 80%;
+        height: 50%;
+        justify-items: center;
+    }
+
+    .test-btns {
+        margin: 20%;
+    }
+}
+
+@media screen  and (min-width: 615px) {
+    .test-btns {
+        margin: 5%;
+    }
+}
