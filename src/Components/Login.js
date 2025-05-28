@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Container, Button, Form, Row, Col } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import "./style/login.css";
+import "../style/login.css";
 import authService from "./services/authService";
 
 function Login() {

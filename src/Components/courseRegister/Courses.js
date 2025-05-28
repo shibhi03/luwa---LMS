@@ -1,29 +1,46 @@
 import { useEffect, useState } from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import axios from "axios";
-import "../style/Courses.css";
+import "../../style/Courses.css";
+import { useOrchestrator } from "../orchestrationService/Orchestrator";
+import { useDataStore } from "../orchestrationService/DataStore";
 
 export default function Course() {
-  const [coursesList, setCoursesList] = useState(null);
 
+  const [coursesList, setCoursesList] = useState(null);
+  const { updateData } = useDataStore();
+  
   useEffect(() => {
     axios
-      .get("http://localhost:6969/luwa/api/courses")
-      .then((response) => {
-        setCoursesList(response.data);
-      })
-      .catch((error) => {
-        console.error(error);
-        alert("Error Fetching courses");
-      });
-  });
+    .get("http://localhost:6969/luwa/api/courses")
+    .then((response) => {
+      setCoursesList(response.data);
+    })
+    .catch((error) => {
+      console.error(error);
+      alert("Error Fetching courses");
+    });
+  }, []);
 
-  const navigate = useNavigate();
+  useEffect(() => {
+    updateData("coursesList", coursesList);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [coursesList]);
+  
+  const location = useLocation();
+
+  const { routeNext } = useOrchestrator();
 
   const [courseSelected, setCourseSelected] = useState();
   const [selectedIndex, setSelectedIndex] = useState(null);
   const [selected, setSelected] = useState(false);
+
+  const handleButton = () => {
+    updateData("course", coursesList[courseSelected - 1].name);
+    updateData("courseIndex", courseSelected);
+    routeNext(location.pathname);
+  }
 
   return (
     <Container className="coursesContainer">
@@ -67,12 +84,7 @@ export default function Course() {
           <Button
             className="nxt-btn btn"
             disabled={!selected}
-            onClick={() =>
-              navigate("/signup/CourseRegister/known-domain", {
-                state: { coursesList, courseSelected },
-              })
-            }
-          >
+            onClick={handleButton}>
             Next
           </Button>
         </Row>

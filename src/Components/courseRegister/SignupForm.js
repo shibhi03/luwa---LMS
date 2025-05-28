@@ -1,12 +1,21 @@
 import { useState } from "react";
 import { Container, Button, Form, Row, Col } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
-import "../style/login.css";
+import { useLocation } from "react-router-dom";
+
+import { useOrchestrator } from "../orchestrationService/Orchestrator";
+import { useDataStore } from "../orchestrationService/DataStore";
+
+import "../../style/login.css";
 
 function SignupForm() {
-  const navigate = useNavigate();
+  const location = useLocation();
+
+  const { routeNext, routeTo } = useOrchestrator();
+  const { updateData } = useDataStore();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  // eslint-disable-next-line 
   const [error, setError] = useState("");
   const [name_, setName] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -14,7 +23,8 @@ function SignupForm() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    navigate("/signup/CourseRegister", { state: {name_}});
+    updateData("name", name_.toUpperCase());
+    routeNext(location.pathname);
     // setError("");
     // try {
     //   const response = await authService.login(email, password);
@@ -30,7 +40,7 @@ function SignupForm() {
     <Container fluid className="login-container">
       <div className="login-header">
         <h1 className="colored">LUWA</h1>
-        <Button className="reg-btn" onClick={() => navigate("/login")}>
+        <Button className="reg-btn" onClick={() => routeTo("login")}>
           Login
         </Button>
       </div>

@@ -1,9 +1,9 @@
 import { Row, Container, Col, Button } from "react-bootstrap";
-import "./style/Home.css";
-import { useNavigate } from "react-router-dom";
+import { useOrchestrator } from "./orchestrationService/Orchestrator";
+import "../style/Home.css";
 
 export default function Home() {
-  const navigate = useNavigate();
+  const { routeTo } = useOrchestrator();
 
   return (
     <Container className="home">
@@ -18,13 +18,13 @@ export default function Home() {
         </Row>
         <Row className="get-started">
           <Col>
-            <button className="btn login" onClick={() => navigate("/login")}>
+            <button className="btn login" onClick={() => routeTo("login")}>
               Login
             </button>
           </Col>
           <p className="or"></p>
           <Col>
-            <Button className="btn signup" onClick={() => navigate("/signup")}>
+            <Button className="btn signup" onClick={() => routeTo("signup")}>
               Register
             </Button>
           </Col>

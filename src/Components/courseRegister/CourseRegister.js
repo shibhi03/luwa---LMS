@@ -1,12 +1,16 @@
-import { useNavigate, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { Container, Row, Col, Button } from "react-bootstrap";
-import "../style/CourseRegister.css";
+import "../../style/CourseRegister.css";
+import { useDataStore } from "../orchestrationService/DataStore";
+import { useOrchestrator } from "../orchestrationService/Orchestrator";
 
 export default function CourseRegister() {
-  const navigate = useNavigate();
   const location = useLocation();
 
-  const name_ = location.state?.name_;
+  const { getData } = useDataStore();
+  const { routeNext } = useOrchestrator();
+
+  const name_ = getData("name");
   
   return(
     <Container className="signup-container">
@@ -23,7 +27,7 @@ export default function CourseRegister() {
           <Col className="signup-col">
             <Button
               className="signup-btn"
-              onClick={() => navigate("/signup/CourseRegister/courses")}
+              onClick={() => routeNext(location.pathname)}
             >
               Get Started
             </Button>
