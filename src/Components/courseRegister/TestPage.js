@@ -36,6 +36,11 @@ function TestPage() {
   }, []);
 
   function handleButton(type) {
+    if (type === "dselected") {
+      setSelected(null);
+      return;
+    }
+    
     if (button === "Finish") {
       navigate("/");
     }
@@ -130,11 +135,6 @@ function TestPage() {
 
       if (nextIndex >= data.length - 2) setButton("Finish");
     }
-
-    if (type === "dselect") {
-      setSelected(null);
-      return;
-    }
   }
 
   console.log(score);
@@ -199,7 +199,7 @@ function TestPage() {
               <Button
                 className="testpage-btn ds-btn"
                 onClick={() => handleButton("dselected")}
-                disabled={selected}
+                disabled={!selected}
               >
                 Deselect
               </Button>

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Container, Button, Form } from "react-bootstrap";
+import { Container, Button, Form, Row, Col } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import "../style/login.css";
 
@@ -30,48 +30,69 @@ function SignupForm() {
     <Container fluid className="login-container">
       <div className="login-header">
         <h1 className="colored">LUWA</h1>
-        <Button className="reg-btn" onClick={() => navigate("/signup")}>
-          Register
+        <Button className="reg-btn" onClick={() => navigate("/login")}>
+          Login
         </Button>
       </div>
 
       <div className="login-form">
         <Form className="form-box" onSubmit={handleSubmit}>
-          <Form.Control
-            type="text"
-            placeholder="Name"
-            value={name_}
-            onChange={(e) => setName(e.target.value)}
-            required
-          />
-          <Form.Control
-            type="email"
-            placeholder="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-          <Form.Control
-            type="text"
-            placeholder="Username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            required
-          />
-          <Form.Control
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-          <Form.Control
-            type="password"
-            placeholder="Confirm password"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-            required
-          />
+          <Row className="form-fields">
+            <Col className="form-field" xs={12} md={6}>
+              <Form.Label>Name</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Name"
+                value={name_}
+                onChange={(e) => setName(e.target.value)}
+                required
+              />
+            </Col>
+
+            <Col className="form-field" xs={12} md={6}>
+              <Form.Label>Email</Form.Label>
+              <Form.Control
+                type="email"
+                placeholder="Email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+            </Col>
+            
+            <Col className="form-field" xs={12} md={6}>
+              <Form.Label>Username</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Username"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                required
+              />
+            </Col>
+
+            <Col className="form-field" xs={12} md={6}>
+              <Form.Label>Password</Form.Label>
+              <Form.Control
+                type="password"
+                placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
+            </Col>
+
+            <Col className="form-field" xs={12} md={6}>
+              <Form.Label>Confirm password</Form.Label>
+              <Form.Control
+                type="password"
+                placeholder="Confirm password"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+                required
+              />
+            </Col>
+          </Row>
           {error && <p className="text-danger">{error}</p>}
           <Button type="submit">Next</Button>
         </Form>
