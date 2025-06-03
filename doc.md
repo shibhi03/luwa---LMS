@@ -1,17 +1,17 @@
 # To update the test algorithm
 ***Code: TEST***
-## 3-05-2024
+_3-05-2024_
 
-    - **Requirement:** 
-        - To test the concepts in which the candidate is weak.
+### Requirement:
+- To test the concepts in which the candidate is weak.
 
-    - **Solution:**
-        - Ask more questions related to the concepts in which the candiate is weak at / to the which the candidate answers worng.
+### Solution:
+- Ask more questions related to the concepts in which the candiate is weak at / to the which the candidate answers worng.
 
-### 05:13
+### Algorithm:
+_05:13_
 ***Code: TEST0.1***
-    - **Algorithm:**
-        - *Step - 1:* Generate 5 questions of for each concepts.
-        - *Step - 2:* Ask the questions to the candidate.
-        - *Step - 3:* If the answert is correct, move to next concept.
-        - *Step - 4:* If the answer is incorrect, ask the questions of the concept until the candidate answers correctly.
+- _Step - 1:_ Generate 5 questions of for each concepts.
+- _Step - 2:_ Ask the questions to the candidate.
+- _Step - 3:_ If the answert is correct, move to next concept.
+- _Step - 4:_ If the answer is incorrect, ask the questions of the concept until the candidate answers correctly.
