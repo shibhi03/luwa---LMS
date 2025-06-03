@@ -6,4 +6,4 @@
 ## Version 0.0.2:
 ### Updated Test algorithm - ***Code:*** _TEXT0.1_
 * _Changes made in server.js_ : Updated the prompt, using few short promting technique.
-* _Changes made in TestPage.js_ : To iterate through each concepts and flow the algorithm (CODE: _TEXT0.1_, doc.md file).
+* _Changes made in TestPage.js_ : To iterate through each concepts and flow the algorithm (CODE: _TEXT0.1_, [doc.md](/doc.md)).
