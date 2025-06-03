@@ -20,6 +20,7 @@ function TestPage() {
   console.log(language1 + " " + language2);
 
   const [data, setData] = useState(null);
+  const [currentCategoryIndex, setCurrentCategoryIndex] = useState(0);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [queno, setQueno] = useState(1);
   const [button, setButton] = useState("Next");
@@ -35,14 +36,23 @@ function TestPage() {
         })
         .then((response) => {
           setData(response.data);
+          console.log("Data fetched successfully");
         })
         .catch((error) => {
           console.error("Error fetching questions" + error);
           alert("Error fetching questions");
         });
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  });
+    // eslint-disable-next-line
+  }, [language1, language2]);
+
+  const categories = data ? Object.keys(data) : [];
+  const currentCategory = categories.length > 0 ? categories[currentCategoryIndex] : null;
+  const currentCategoryQuestions = data ? data[currentCategory] : [];
+  const currentQuestion =
+    currentCategoryQuestions.length > 0
+      ? currentCategoryQuestions[currentQuestionIndex]
+      : null;
 
   function handleButton(type) {
     if (type === "dselected") {
@@ -71,10 +81,26 @@ function TestPage() {
           ...prevScore,
           correct: {
             ...prevScore.correct,
-            [currentQuestion.level]:
-              (prevScore.correct[currentQuestion.level] || 0) + 1,
+            concept: {
+              ...prevScore.correct.concept,
+              [currentQuestion.concept]:
+                (prevScore.correct[currentQuestion.concept] || 0) + 1,
+            },
+            level: {
+              ...prevScore.correct.level,
+              [currentQuestion.level]:
+                (prevScore.correct[currentQuestion.level] || 0) + 1,
+            }
           },
         }));
+        // Skip to next category if the answer is correct and is not the last category.
+        if (currentCategoryIndex < categories.length - 1) {
+          setCurrentCategoryIndex(currentCategoryIndex + 1);
+          setCurrentQuestionIndex(0);
+          setQueno(queno + 1);
+          setSelected(-1);
+          return;
+        }
       }
     }
 
@@ -85,20 +111,21 @@ function TestPage() {
       return;
     }
 
-    // Move to next question
+    // Move to next question in the current category
     setSelected(-1);
-    if (currentQuestionIndex < data.length - 1) {
+    if (currentQuestionIndex < currentCategoryQuestions.length - 1) {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
       setQueno(queno + 1);
-
-      if (currentQuestionIndex >= data.length - 2) {
-        setButton("Finish");
-      }
+    } else if (currentCategoryIndex < categories.length - 1) {
+      // Move to next category if no more questions in current category
+      setCurrentCategoryIndex(currentCategoryIndex + 1);
+      setCurrentQuestionIndex(0);
+      setQueno(queno + 1);
+    } else {
+      // No more categories or questions left
+      setButton("Finish");
     }
   }
-
-  const currentQuestion =
-    data && data.length > 0 ? data[currentQuestionIndex] : null;
 
   return (
     <Container className="test-Container">
@@ -106,6 +133,7 @@ function TestPage() {
         <Container className="testpage-innerContainer">
           <Container className="questions">
             <h2 className="ques-no"> Question {queno} </h2>
+            <h2 className="ques-no"> category {currentCategory} </h2>
             <h3 className="question"> {currentQuestion.question} </h3>
           </Container>
           <Container className="options">

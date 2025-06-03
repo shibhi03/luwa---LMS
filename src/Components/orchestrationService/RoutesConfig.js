@@ -6,6 +6,7 @@ import SignupForm from "../courseRegister/SignupForm";
 import TakeTest from "../courseRegister/Test/TakeTest";
 import TestPage from "../courseRegister/Test/TestPage";
 import Home from "../Home";
+import LearningPathDisplay from "../LearningPathDisplay";
 import Login from "../Login";
 
 export const routes = [
@@ -17,5 +18,6 @@ export const routes = [
   { id: "takeTest", path: "/takeTest", component: TakeTest },
   { id: "questions", path: "/takeTest/questions", component: TestPage },
   { id: "analysis", path: "/analysis", component: Analysis },
+  { id: "learningPath", path: "/learning-path", component: LearningPathDisplay},
   { id: "login", path: "/login", component: Login },
 ];
